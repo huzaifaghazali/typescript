@@ -143,3 +143,74 @@ let products: { title: string; cost?: number }[] = [
   product2,
   product3,
 ];
+
+/* Interface vs Type Alias
+
+1- A type alias is a way to give a name to a type. It can represent primitive types, union types, intersection types, tuples, and any other types. Once defined, the alias can be used anywhere in place of the actual type.
+2- An interface is a way to define a contract for a certain structure of an object.
+
+Type aliases can represent primitive types, union types, intersection types, tuples, etc., while interfaces are primarily used to represent the shape of an object.
+
+Interfaces can be merged using declaration merging. If you define an interface with the same name more than once, TypeScript will merge their definitions. Type aliases can't be merged in this way.
+
+Interfaces can be implemented by classes, while type aliases cannot.
+
+Type aliases can use computed properties, while interfaces cannot.
+
+*/
+
+interface Person {
+  name: string;
+  greet(): void;
+}
+
+class Employee implements Person {
+  name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  greet() {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+}
+
+let john = new Employee('John');
+// john.greet(); // Outputs: Hello, my name is John
+
+/* Tuples
+In TypeScript, a Tuple is a special type that allows you to create an array where the type of a fixed number of elements is known, but need not be the same - in other words it's an array with fixed length and ordered with fixed types. This is useful when you want to group different types of values together.
+
+Tuples are useful when you want to return multiple values from a function.
+*/
+let person: [string, number] = ['john', 25]
+
+/* Enums
+Enums in TypeScript allow us to define a set of named constants. Using enums can make it easier to document intent, or create a set of distinct cases.
+*/
+
+enum ServerResponseStatus {
+  Success = 200,
+  Error = 'Error',
+}
+
+interface ServerResponse {
+  result: ServerResponseStatus;
+  data: string[];
+}
+
+function getServerResponse(): ServerResponse {
+  return {
+    result: ServerResponseStatus.Success,
+    data: ['first item', 'second item'],
+  };
+}
+
+const response: ServerResponse = getServerResponse();
+// console.log(response);
+
+
+// Object.values(ServerResponseStatus).forEach((value) => {
+//   console.log(value);
+// })
