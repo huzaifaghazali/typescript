@@ -8,6 +8,6 @@ export { default as CartButton } from './CartButton';
 export { default as ErrorElement } from './ErrorElement';
 export { default as Hero } from './Hero';
 export { default as HeroCarousel } from './HeroCarousel';
-export { default as ProductGrid } from './ProductGrid';
+export { default as ProductGrid } from './ProductsGrid';
 export { default as SectionTitle } from './SectionTitle';
 export { default as FeaturedProducts } from './FeaturedProducts';
