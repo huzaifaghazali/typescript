@@ -7,7 +7,8 @@ import {
   formatAsDollars,
   type SingleProductResponse,
 } from '@/utils';
-import { SelectProductColor } from '@/components';
+import { SelectProductAmount, SelectProductColor } from '@/components';
+import { Mode } from '@/components/SelectProductAmount';
 
 export const loader: LoaderFunction = async ({
   params,
@@ -60,6 +61,7 @@ function SingleProduct() {
             {dollarsAmount}
           </p>
           <p className='mt-6 leading-8'>{description}</p>
+
           {/* COLORS */}
           <SelectProductColor
             colors={colors}
@@ -68,6 +70,11 @@ function SingleProduct() {
           />
 
           {/* AMOUNT */}
+          <SelectProductAmount
+            mode={Mode.SingleProduct}
+            amount={amount}
+            setAmount={setAmount}
+          />
 
           {/* CART BUTTON */}
           <Button size='lg' className='mt-10' onClick={addToCart}>
