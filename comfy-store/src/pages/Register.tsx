@@ -36,13 +36,11 @@ function Register() {
           <CardTitle className='text-center'>Register</CardTitle>
         </CardHeader>
         <CardContent>
-          <Form>
+          <Form method='post'>
             <FormInput type='text' name='username' />
             <FormInput type='email' name='email' />
             <FormInput type='password' name='password' />
-            <Button type='submit' variant='default' className='w-full mt-4'>
-              Submit
-            </Button>
+            <SubmitBtn text='Register' className='w-full mt-4' />
 
             <p className='text-center mt-4'>
               Already a member?
