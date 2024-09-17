@@ -24,3 +24,4 @@ export { default as CartItemsList } from './CartItemsList';
 export { default as SubmitBtn } from './SubmitBtn';
 export { default as FormInput} from './FormInput';
 export { default as CheckoutForm } from './CheckoutForm';
+export { default as OrdersList } from './OrdersList';
